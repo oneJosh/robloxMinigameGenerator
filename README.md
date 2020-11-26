@@ -5,8 +5,12 @@ If any questions such as on how to add/create a minigame to the .rbxl file, cont
 
 Will update in the future when I get around to it.
 
+________________________________________________________
 
-UPDATE LOGS:
+
+^^UPDATE LOGS
+
+___________________________________________________________
 
 
 11/25/2020 - V1.0
