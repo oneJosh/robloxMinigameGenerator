@@ -1,0 +1,33 @@
+local Players = game:GetService("Players") -- game.Players is OK here, too
+local firstTime = true
+local text = game.StarterGui.ScreenGui.GameStatus -- Lobby text in GUI --  
+local LobbyArea = game.ServerStorage.LobbyArea.Lobby:Clone() -- Find lobby model in folder LobbyArea
+-- test // local playerList = {}
+
+
+function onPlrJoin(plr) -- Check for Concurrent Number of Players -- 
+	-- test // table.insert(playerList, plr.UserId)
+	-- test // print(plr.UserId)
+	LobbyArea.PrimaryPart = LobbyArea.SpawnLocation
+	local position= Vector3.new(0,200,0)
+	LobbyArea:SetPrimaryPartCFrame(CFrame.new(position))
+	LobbyArea.Parent = workspace
+	
+	if #game.Players:GetPlayers() == 1 then
+		game.ServerScriptService.GameStarter.Disabled = false
+		script.Disabled = true
+	elseif #game.Players:GetPlayers() == 0 then
+		text.Text = "Waiting for Players"
+	end
+	
+end
+
+
+
+
+
+--for _, plr in pairs(Players:GetPlayers()) do
+-- onPlrJoin(plr)
+--  
+-- Listen for newly connected players
+Players.PlayerAdded:Connect(onPlrJoin)
